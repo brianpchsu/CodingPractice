@@ -6,6 +6,7 @@
  * }
  */
 /**
+   Sort a linked list using insertion sort.
  * @param {ListNode} head
  * @return {ListNode}
  */

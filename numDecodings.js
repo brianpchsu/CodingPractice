@@ -13,19 +13,21 @@
        f1 = i > 0? result[i-1] : 1;
        var num = parseInt(s.substring(i, i+2));
        if(num > 10 && num <= 26 && num !==20 && s[i+2] !== '0'){
-         f2 = 1;
+         f2 = i > 1? result[i-2] : 1;
        }
        result[i] = f1 + f2;
      } else {
        if(s[i+1] === '0') return 0;
+       if(parseInt(s[i-1]) > 2) return 0;
        result[i] = result[i-1]? result[i-1]: 0;
      }
      if(result[i] === 0) return 0;
    }
+   console.log("result", result);
    return result[result.length-1];
  };
 
-console.log(numDecodings('121'));
-console.log(numDecodings('11'));
-console.log(numDecodings('10'));
-console.log(numDecodings('110'));
+console.log(numDecodings('1212'));
+// console.log(numDecodings('11'));
+// console.log(numDecodings('10'));
+// console.log(numDecodings('110'));

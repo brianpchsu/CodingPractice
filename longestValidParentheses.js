@@ -7,7 +7,7 @@ var longestValidParentheses = function(s) {
   var stack = [];
   var longest = 0, start = -1;
   for(var i = 0; i < s.length; i++){
-    // if it's '(', add to stack
+    // if it's '(', add index to stack
     if(s[i] === '('){
       stack.push(i);
     } else {

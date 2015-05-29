@@ -2,6 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
+// Original solution O(2n)
 var singleNumber = function(nums) {
   // use an object (hash table underneath)
   var record = {};
@@ -18,4 +19,21 @@ var singleNumber = function(nums) {
   }
 };
 
+// another solution O(n+1), slightly improve
+var singleNumber = function(nums) {
+  var record = {};
+  for(var i = 0; i < nums.length; i++){
+     // if the key already exist, the 2nd time just delete the nums
+     if( record[ nums[i] ] ) {
+       delete record[nums[i]];
+      } else {
+      // record the key
+      record[ nums[i] ] = true;
+      }
+  }
+  // return the only key in record
+   for(key in record){
+     return parseInt(key);
+   }
+};
 

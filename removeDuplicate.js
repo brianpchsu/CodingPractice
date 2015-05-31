@@ -5,10 +5,10 @@
 var removeDuplicates = function(nums) {
   // if nums length is 0 or 1, return the length (no duplicate)
   if(nums.length < 2) return nums.length;
-  // define index and arrayLength
-  var index = 1, arrLength = nums.length;
+  // define index
+  var index = 1;
   // iterate through the array
-  for(var i = 1; i < arrLength; i++){
+  for(var i = 1; i < nums.length; i++){
     // if current one is different than the previous one
     if(nums[i] !== nums[i-1]){
       // rewrite the index position element to the current i

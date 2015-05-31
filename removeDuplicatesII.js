@@ -29,7 +29,4 @@ var removeDuplicates = function(nums) {
 };
 
 console.log(removeDuplicates([1,1,1]))
-console.log(removeDuplicates([1,1,2,2,2]))
-
-var x = 0;
-console.log("x", x++);
+console.log(removeDuplicates([1,1,1, 2,2,2]))

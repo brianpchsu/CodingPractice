@@ -15,12 +15,19 @@ function ListNode(val) {
 }
 
 var reverseList = function(head) {
+  // define prev, null is first used for the inital head.next
   var prev = null;
+  // check every node while head is not null
   while(head !== null){
+    // save head.next to temp
     var temp = head.next;
+    // save the prev to current node's next
     head.next = prev;
+    // move the current node to prev node
     prev = head;
+    // iterate to next node (temp)
     head = temp;
   }
+  // return the final node (new head)
   return prev;
 };

@@ -52,10 +52,10 @@ MinStack.prototype.getMin = function() {
 };
 
 var stack = new MinStack();
-stack.push(2);
-stack.push(0);
+stack.push(4);
 stack.push(3);
-stack.push(0);
+stack.push(2);
+stack.push(1);
 
 console.log(stack.getMin());
 stack.pop();

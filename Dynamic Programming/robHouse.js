@@ -28,6 +28,6 @@ var rob = function(nums) {
   return Math.max(even, odd);
 };
 
-console.log(rob([50, 50, 10, 1]));
+console.log(rob([5, 50, 49, 1]));
 console.log(rob([50,1, 1, 50]));
 console.log(rob([2, 1, 6, 5]));

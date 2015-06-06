@@ -18,10 +18,7 @@ var merge = function(nums1, m, nums2, n) {
       nums1[index--] = nums2[j--];
     }
   }
-  // if there is still elements left in nums1, update the remaining with nums1 elements
-  while( i >= 0){
-    nums1[index--] = nums1[i--];
-  }
+  // if there is still elements left in nums1, no need to do anything, already in position
   // if there is still elements left in nums1, update the remaining with nums1 elements
   while( j >= 0){
     nums1[index--] = nums2[j--];

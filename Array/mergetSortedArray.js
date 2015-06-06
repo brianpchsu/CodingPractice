@@ -24,3 +24,17 @@ var merge = function(nums1, m, nums2, n) {
     nums1[index--] = nums2[j--];
   }
 };
+
+var merge = function(nums1, m, nums2, n) {
+  // define pointer for both array starting from the end
+  // index pointer updated from the end of nums1
+
+  // while both index are greater than 0
+  for(var i = m - 1, j = n -1, index = m + n -1; index >=0; --index){
+    if(i >=0 && (j < 0 || nums1[i] > nums2[j])){
+      nums1[index] = nums1[i--];
+    } else {
+      nums1[index] = nums2[j--];
+    }
+  }
+};

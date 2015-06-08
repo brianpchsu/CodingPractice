@@ -8,10 +8,12 @@ var subsets = function(nums) {
 
   // for each member in argument set
   for (var i = 0; i < nums.length; i ++) {
+    //for each result, concat with the element
     results = results.concat(results.map(function (subset) {
       return subset.concat(nums[i]);
     }));
   };
+  // sort the array inside the result
   results.map(function(subset){
     return subset.sort(function(a,b){
       return a-b;

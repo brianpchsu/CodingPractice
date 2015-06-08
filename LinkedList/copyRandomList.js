@@ -38,6 +38,7 @@ var copyRandomList = function(head) {
     newpointer = newpointer.next;
     current = current.next;
   }
+
   return newheadbefore.next;
 };
 

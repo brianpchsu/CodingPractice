@@ -21,7 +21,7 @@ var insertionSortList = function(head) {
   // if there is no head or only 1 node, return
   if(head === null || head.next ===null){
     return head;
-  };
+  }
 
   // define sorted list
   var sortedList = new ListNode(0);

@@ -40,3 +40,19 @@ var removeElements = function(head, val) {
   return helperList.next;
 };
 
+var one = new ListNode(1);
+var two = new ListNode(2);
+var three = new ListNode(3);
+var four = new ListNode(4);
+var five = new ListNode(5);
+var six = new ListNode(6);
+var seven = new ListNode(7);
+
+one.next = two;
+two.next = three;
+three.next= four;
+four.next = five;
+five.next = six;
+six.next = seven;
+
+console.log(removeElements(one, 2));

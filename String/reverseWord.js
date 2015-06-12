@@ -9,7 +9,7 @@ var reverseWord = function(str) {
  for(var i = 0; i < str.length ; i++){
      // if current character is white space, then
      if(str[i] === ' '){
-         result = tempWord + ' ' + result;
+         result = result.length? tempWord + ' ' + result: tempWord;
          tempWord = '';
      }
      else {
@@ -18,6 +18,6 @@ var reverseWord = function(str) {
  }
  result = tempWord + ' ' + result;
  return result;
-}
+};
 
 console.log(reverseWord('i really like google as a company'))

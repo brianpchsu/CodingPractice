@@ -20,4 +20,4 @@ var isPalindrome = function(s) {
 
 console.log(isPalindrome('A man, a plan, a canal: Panama'));
 console.log(isPalindrome('race a car'));
-console.log(isPalindrome('1a2'));
+console.log(isPalindrome('12a21'));

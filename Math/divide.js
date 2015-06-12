@@ -23,9 +23,11 @@ var divide = function(dividend, divisor) {
     }
     console.log("divs, shift", [divs, shift] );
     divd -= divs << shift;  // divd minus the left shift of the divs ()
-    console.log("divd is ", divd )
+    console.log("divd is ", divd );
     result += 1 << shift;   // result is old result + 1 left shift
-    console.log("result is ", result )
+    console.log("result is ", result );
+    console.log("divd ", divd, "divs ", divs);
+
   }
   // if the dividend and divisor are not all positive/ negative, change result sign
   if((divisor>0) !== (dividend>0)){

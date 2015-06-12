@@ -31,3 +31,9 @@ var reverseList = function(head) {
   // return the final node (new head)
   return prev;
 };
+
+var one = new ListNode(1);
+var two = new ListNode(2);
+one.next = two;
+
+console.log(reverseList(one));

@@ -41,3 +41,20 @@ var removeNthFromEnd = function(head, n) {
   slow.next = slow.next.next;
   return head;
 };
+
+var one = new ListNode(1);
+var two = new ListNode(2);
+var three = new ListNode(3);
+var four = new ListNode(4);
+var five = new ListNode(5);
+var six = new ListNode(6);
+var seven = new ListNode(7);
+
+one.next = two;
+two.next = three;
+three.next= four;
+four.next = five;
+five.next = six;
+six.next = seven;
+
+console.log(removeNthFromEnd(one, 6));

@@ -40,4 +40,4 @@ var countAndSay = function(n) {
   return result;
 };
 
-console.log(countAndSay(5));
+console.log(countAndSay(3));

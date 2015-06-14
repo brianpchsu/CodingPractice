@@ -31,7 +31,7 @@ var romanToInt = function(romanNumeral){
   return result;
 };
 
-console.log(translateRomanNumeral("VI"));
-console.log(translateRomanNumeral("IV"));
-console.log(translateRomanNumeral("XVI"));
-console.log(translateRomanNumeral("LXXXIII"));
+console.log(romanToInt("VI"));
+console.log(romanToInt("IV"));
+console.log(romanToInt("XVI"));
+console.log(romanToInt("LXXXIII"));

@@ -10,23 +10,21 @@
  * @return {ListNode}
  */
 var sortList = function(head) {
-  return mergeSort(head);
+  if(!head || !head.next) return head;
+  var middle = getMiddle(head);
+  var nextHalf = middle.next;
+  middle.next = null;
+  return merge(sortList(head), sortList(nextHalf));
 };
 
-var mergeSort = function(head){
-  if(!head || !head.next) return head;
-  var walker = head;
-  var runner = head;
-  while(runner.next !== null && runner.next.next !== null){
-    walker = walker.next;
-    runner = runner.next.next;
+var getMiddle = function(head){
+  if(!head) return head;
+  var slow = head, fast = head;
+  while(fast.next !== null && fast.next.next !== null){
+    slow = slow.next;
+    fast = fast.next.next;
   }
-  var head2 = walker.next;
-  walker.next = null;
-  var head1 = head;
-  head1 = mergeSort(head1);
-  head2 = mergeSort(head2);
-  return merge(head1, head2);
+  return slow;
 };
 
 var merge = function(head1, head2){

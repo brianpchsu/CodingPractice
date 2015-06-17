@@ -9,6 +9,8 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
+
+// iterative solution
 var preorderTraversal = function(root) {
   // define result array and stack for tracking
   var result = [], stack = [];
@@ -31,3 +33,17 @@ var preorderTraversal = function(root) {
 };
 
 
+// recursive solution
+var preorderTraversal = function(root){
+  var result = [];
+  recordNode(root, result);
+  return result;
+};
+
+// helper funciton for checking node
+var recordNode = function(node, result){
+  if(!node) return;
+  result.push(node.val);
+  recordNode(node.left);
+  recordNode(node.right);
+};

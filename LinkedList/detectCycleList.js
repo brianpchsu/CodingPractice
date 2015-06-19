@@ -11,6 +11,7 @@
  * @return {ListNode}
  */
 var detectCycle = function(head) {
+  // use two pointer to check cycle
   var first = head, second = head;
   while(first && second){
     first = first.next;
@@ -22,7 +23,9 @@ var detectCycle = function(head) {
       break;
     }
   }
+  // if the second (fast one) is null, no cycle
   if(!second) return null;
+  // going together at same speed to find the target
   first = head;
   while(first !== second){
     first = first.next;

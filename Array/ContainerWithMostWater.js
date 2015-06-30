@@ -2,6 +2,7 @@
  * @param {number[]} height
  * @return {number}
  */
+// Complexity O(n)
 var maxArea = function(height) {
   // define the default start and end point
   var start = 0, end = height.length -1;

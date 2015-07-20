@@ -20,7 +20,7 @@ var Queue = function(){
     return this._storage.length === 0;
   };
 } ;
-
+// Solution 1, use two Queue for Stack
 var Stack = function() {
   // use two Queue for tracking, q1 for older record, q2 for the latest input
   this.q1 = new Queue();
@@ -73,4 +73,52 @@ Stack.prototype.top = function() {
 Stack.prototype.empty = function() {
   // check empty by looking q1 and q2 together
   return this.q1.isEmpty() && this.q2.isEmpty();
+};
+
+
+// Solution 2, use one Queue for Stack, another temp one when pushing value
+var Stack = function() {
+  this.q = new Queue();
+};
+
+/**
+ * @param {number} x
+ * @returns {void}
+ */
+Stack.prototype.push = function(x) {
+  // define a temp Queue for helping
+  var temp = new Queue();
+  // if q is not empty
+  while(!this.q.isEmpty()){
+    // move all items in q to temp
+    temp.push(this.q.pop());
+  }
+  // save x (latest one) to q
+  this.q.push(x);
+  // save all temp items back to q
+  while(!temp.isEmpty()){
+    this.q.push(temp.pop());
+  }
+};
+
+/**
+ * @returns {void}
+ */
+// since q is in the Stack order (last one in the front), call the q method is legit
+Stack.prototype.pop = function() {
+  this.q.pop();
+};
+
+/**
+ * @returns {number}
+ */
+Stack.prototype.top = function() {
+  return this.q.peek();
+};
+
+/**
+ * @returns {boolean}
+ */
+Stack.prototype.empty = function() {
+  return this.q.isEmpty();
 };

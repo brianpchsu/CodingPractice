@@ -10,6 +10,7 @@
  * @param {Interval} newInterval
  * @return {Interval[]}
  */
+// Solution 1
 var insert = function(intervals, newInterval) {
   // sort the origin interval based on the start value
   intervals.sort(function(a, b){
@@ -40,5 +41,22 @@ var insert = function(intervals, newInterval) {
   }
   //after all the iteration, save the newInterval to the result
   result.push(newInterval);
+  return result;
+};
+
+// Solution 2 use the mergeInterval method
+var insert = function(intervals, newInterval) {
+  intervals.push(newInterval);
+  intervals.sort(function(a, b){
+    return a.start - b.start;
+  });
+  var result = [intervals[0]];
+  for(var i = 1; i < intervals.length; i++){
+    if(result[result.length-1].end >= intervals[i].start){
+      result[result.length-1].end = Math.max(result[result.length-1].end, intervals[i].end);
+    } else {
+      result.push(intervals[i]);
+    }
+  }
   return result;
 };

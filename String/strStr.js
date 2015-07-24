@@ -9,17 +9,15 @@
  The key is to implement the solution cleanly without dealing with each edge case separately.
  */
 var strStr = function(haystack, needle) {
-  // if needle is null, or haystack is null, or needle is empty, return 0
-  if(!needle || !haystack || needle.length ===0) return 0;
-  var hayLength = haystack.length, needleLength = needle.length;
-  // if needle is longer than haystack, no position will fit
-  if(hayLength < needleLength) return -1;
+  // if needle is empty, return 0
+  if(needle.length ===0) return 0;
+  if(haystack.length < needle.length) return -1;
   // check from the beginning of the hayStack
-  for(var i = 0; i <= hayLength - needleLength; i++){
+  for(var i = 0; i <= haystack.length - needle.length; i++){
     // boolean isSuccess
     var isSuccess = true;
     // check from the beginning of the needle
-    for(var j = 0; j < needleLength; j++){
+    for(var j = 0; j < needle.length; j++){
       // check if haystack and needle have the same character
       if(haystack[i+j] !== needle[j]){
         // if the characters are not the same, break
@@ -36,3 +34,4 @@ var strStr = function(haystack, needle) {
 
 console.log(strStr('aaa','a'));
 console.log(strStr('a','a'));
+console.log(strStr('','a'));

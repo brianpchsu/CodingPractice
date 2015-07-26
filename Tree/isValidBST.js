@@ -22,3 +22,16 @@ var isValidBST = function(root, min, max) {
   return isValidBST(root.left, minValue, root.val) && isValidBST(root.right, root.val, maxValue);
 };
 
+
+// Solution 2, separate the checkBST out, somehow this method cause wrong answer
+var checkBST = function(node, min, max){
+  if (!node) return true;
+  if(node.val <= min || node.val >= max){
+    return false;
+  }
+  return checkBST(node.left, min, node.val) && isValidBST(node.right, node.val, max);
+};
+
+var isValidBST = function(root) {
+  return checkBST(root, -Infinity, Infinity);
+};

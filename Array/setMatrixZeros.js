@@ -3,30 +3,36 @@
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
 var setZeroes = function(matrix) {
+  // store row and column length
   var rowLength = matrix.length, colLength = matrix[0].length;
+  // if row length is 0, then don't need to do anything, just return
   if(rowLength < 1) return;
+  // variable to check first row and first column's zero situation
   var firstRowWithZero = false, firstColWithZero = false;
-
+  // check first col's zero
   for(var i = 0; i < rowLength && !firstColWithZero; i++){
     if(matrix[i][0] === 0) {
-      console.log("matrix[i][0] ", matrix[i][0]);
       firstColWithZero = true;
+      break;
     }
   }
+  // check first row's zero
   for(var j = 0; j < colLength && !firstRowWithZero; j++){
     if(matrix[0][j] === 0) {
       firstRowWithZero = true;
+      break;
     }
   }
-  for(var i = 0; i < rowLength; i++){
-    for(var j = 0; j < colLength; j++){
+  // start from 1, if there is a zero, store that information in 0th row and 0th col
+  for(var i = 1; i < rowLength; i++){
+    for(var j = 1; j < colLength; j++){
       if(matrix[i][j] === 0){
         matrix[i][0] = 0;
         matrix[0][j] = 0;
       }
     }
   }
-
+  // update the matrix by the info we stored in the last process
   for(var i = 1; i < rowLength; i++){
     for(var j = 1; j < colLength; j++){
       if(matrix[i][0] === 0 || matrix[0][j] === 0) {
@@ -34,11 +40,13 @@ var setZeroes = function(matrix) {
       }
     }
   }
+  // final update with the first column
   if(firstColWithZero){
     for(var i = 0; i < rowLength; i++){
       matrix[i][0] = 0;
     }
   }
+  // final update with the first row
   if(firstRowWithZero){
     for(var j = 0; j < colLength; j++){
       matrix[0][j] = 0;

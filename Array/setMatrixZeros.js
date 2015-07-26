@@ -9,6 +9,7 @@ var setZeroes = function(matrix) {
 
   for(var i = 0; i < rowLength && !firstColWithZero; i++){
     if(matrix[i][0] === 0) {
+      console.log("matrix[i][0] ", matrix[i][0]);
       firstColWithZero = true;
     }
   }
@@ -19,7 +20,7 @@ var setZeroes = function(matrix) {
   }
   for(var i = 0; i < rowLength; i++){
     for(var j = 0; j < colLength; j++){
-      if(matrix[i][j] ===[0]){
+      if(matrix[i][j] === 0){
         matrix[i][0] = 0;
         matrix[0][j] = 0;
       }
@@ -28,9 +29,7 @@ var setZeroes = function(matrix) {
 
   for(var i = 1; i < rowLength; i++){
     for(var j = 1; j < colLength; j++){
-      if(matrix[i][0] === 0) {
-        matrix[i][j] = 0;
-      } else if (matrix[0][j] === 0){
+      if(matrix[i][0] === 0 || matrix[0][j] === 0) {
         matrix[i][j] = 0;
       }
     }

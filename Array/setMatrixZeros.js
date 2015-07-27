@@ -2,6 +2,7 @@
  * @param {number[][]} matrix
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
+// Solution 1, update in place
 var setZeroes = function(matrix) {
   // store row and column length
   var rowLength = matrix.length, colLength = matrix[0].length;
@@ -53,6 +54,30 @@ var setZeroes = function(matrix) {
     }
   }
 };
+
+// Solution 2, use extra space
+var setZeroes = function(matrix) {
+  var rowLength = matrix.length, colLength = matrix[0].length;
+  if(rowLength < 1) return;
+  var rowRecorder = new Array(rowLength);
+  var colRecorder = new Array(colLength);
+
+  for(var i = 0; i < rowLength; i++){
+    for(var j = 0; j < colLength; j++){
+      if(matrix[i][j] === 0){
+        rowRecorder[i] = true, colRecorder[j] = true;
+      }
+    }
+  }
+  for(var i = 0; i < rowLength; i++){
+    for(var j = 0; j < colLength; j++){
+      if(rowRecorder[i] || colRecorder[j]){
+        matrix[i][j] = 0;
+      }
+    }
+  }
+};
+
 
 var matrix = [[1,2,3,4],[5,0,5,2],[8,9,2,0],[5,7,2,1]];
 setZeroes(matrix);

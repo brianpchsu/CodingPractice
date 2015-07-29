@@ -13,14 +13,14 @@ var generateParenthesis = function(n) {
 
 // helper function for adding more parenthesis
 var fillParenthesis = function(n, left, right, currentString, result){
-  // if left is less than right (shouldn't happen!) return
+  // if left parenthesis num is less than right parenthesis num(shouldn't happen!) return
   if(left < right) return;
-  // if left and right both reach desired number, add currentString to result
+  // if left and right parenthesis num both reach desired number, add currentString to result
   if(left === n && right === n){
     result.push(currentString);
     return;
   }
-  // if left reaches the n, just add more right (parenthesis)
+  // if left parenthesis num reaches the n, just add more right (parenthesis)
   if(left === n){
     fillParenthesis(n, left, right+1, currentString + ")", result);
     return;

@@ -9,20 +9,24 @@
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
+function ListNode(val) {
+    this.val = val;
+    this.next = null;
+}
+
+// Solution 1, recursive for merge K lists
 var mergeKLists = function(lists) {
-  if(!lists) return null;
-  return helper(lists, 0, lists.length-1);
+  if(!lists || lists.length === 0) return null;
+  if(lists.length ===1) return lists[0];
+
+  var l1 = lists.pop();
+  var l2 = lists.pop();
+  var merged = mergeTwoLists(l1, l2);
+  lists.push(merged);
+  return mergeKLists(lists);
 };
 
-var helper = function(lists, left, right){
-  if(left < right){
-    var middle = Math.floor(left + right)/2;
-    return merge(helper(lists, left, middle), helper(lists, middle, right));
-  }
-  return lists[right];
-};
-
-var merge = function(l1, l2) {
+var mergeTwoLists = function(l1, l2) {
   if(l1 === null) return l2;
   if(l2 === null) return l1;
   // Define a ListNode
@@ -52,3 +56,4 @@ var merge = function(l1, l2) {
   return head.next;
 };
 
+console.log(mergeKLists([[], []]));

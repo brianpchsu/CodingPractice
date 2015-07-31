@@ -57,7 +57,7 @@ Stack.prototype.top = function() {
   // if q2 is empty, then we need to get the number from q1
   if(this.q2.isEmpty()){
     // the target number is in the end of q1, so we move the head to the end and do it q1.size()-1 times
-    for(var i = 0; i < this.q1.size(); i++){
+    for(var i = 0; i < this.q1.size()-1; i++){
       this.q1.push(this.q1.pop());
     }
     // the head of q1 is the latest item, move that to q2

@@ -14,7 +14,6 @@ var minPathSum = function(grid) {
     result[i] = [];
     result[i][0] = result[i-1][0] + grid[i][0];
   }
-    result[0] = [], result[0][0] = grid[0][0];
   // initialize each col and get sum the number from previous col (from result) with the current grid (from grid)
   for(var j = 1; j < col; j++){
     result[0][j] = result[0][j-1] + grid[0][j];

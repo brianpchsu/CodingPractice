@@ -15,6 +15,9 @@ function ListNode(val) {
 }
 
 // Solution 1, recursive for merge K lists
+// merge 2 lists and use the merged list to merge the third list
+// Time: 2n + 3n + 4n + ... + kn = O(nk^2)
+// Space: O(1)
 var mergeKLists = function(lists) {
   if(!lists || lists.length === 0) return null;
   if(lists.length ===1) return lists[0];
@@ -26,17 +29,28 @@ var mergeKLists = function(lists) {
   return mergeKLists(lists);
 };
 
-// Solution two divide and merge,
+// Solution two divide and merge
+// Time: 2n * k/2 + 4n * k/4 + ... + (2^x) n /(2^x) = nkx
+// k/(2^x) = 1 -> 2^x = k -> x = log2(k)
+// So time is O(nk log(k))
+// Space is O(1)
 var mergeKLists = function(lists){
+  // if the list is empty, return null
   if(lists.length === 0) return null;
+  // end will be the last item in lists
   var end = lists.length-1;
+  // run the merge until end is 0
   while(end > 0){
+    // each new iteration begin starts from 0
     var begin  = 0;
+    // divide and merge start
     while(begin < end){
+      // the new merged at lists[begin] are the first (increment) and last (decrement)
       lists[begin] = mergeTwoLists(lists[begin], lists[end]);
       begin++;
       end--;
     }
+    // end will be only half of the starting amount, iterate again for the double length list in the lists
   }
   return lists[0];
 };

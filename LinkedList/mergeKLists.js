@@ -26,9 +26,24 @@ var mergeKLists = function(lists) {
   return mergeKLists(lists);
 };
 
+// Solution two divide and merge,
+var mergeKLists = function(lists){
+  if(lists.length === 0) return null;
+  var end = lists.length-1;
+  while(end > 0){
+    var begin  = 0;
+    while(begin < end){
+      lists[begin] = mergeTwoLists(lists[begin], lists[end]);
+      begin++;
+      end--;
+    }
+  }
+  return lists[0];
+};
+
 var mergeTwoLists = function(l1, l2) {
-  if(l1 === null) return l2;
-  if(l2 === null) return l1;
+  if(l1 === null || l1.length === 0) return l2;
+  if(l2 === null || l2.length === 0) return l1;
   // Define a ListNode
   var head = new ListNode(0);
   // Define a pointer for later update

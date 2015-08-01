@@ -2,31 +2,38 @@
  * @param {string} digits
  * @return {string[]}
  */
+// define the map for number to letter check out
 var digitToLetter = {
   0: '0', 1: '1', 2: 'abc', 3: 'def', 4: 'ghi',  5: 'jkl', 6: 'mno', 7: 'pqrs', 8: 'tuv', 9: 'wxyz'
 };
 
 var letterCombinations = function(digitString) {
-  //Save the current words through closurescope
+  //define final results word
   var words = [];
+  // if null or empty input, just return
   if(!digitString || digitString.length === 0) return words;
 
+  // helper function to achieve dfs
   var getWords  = function(word, digits){
-    //base case, reach the end
+    //base case, when the digits is empty, reach the end, save the word to result
     if (digits.length ===0){
       words.push(word);
       return;
-    };
-
+    }
+    // during process, get the 1st number
     var currentDigit = digits[0];
     console.log("currentDigit", currentDigit);
+    // copy the slice remaining array to remainDigits
     var remainDigits = digits.slice(1);
+    // for each digit, get all the possible letter in array
     var letters = digitToLetter[currentDigit].split('');
     for (var i = 0; i<letters.length; i++){
       console.log("word + letters[i]", word + letters[i]);
+      // for each letter, concat the temp word with this letter, make recursive call with the remaining options
       getWords(word + letters[i], remainDigits);
-    };
+    }
   };
+  // initial call, use empty string and input number array for the call
   getWords('', digitString.split(''));
   return words;
 };

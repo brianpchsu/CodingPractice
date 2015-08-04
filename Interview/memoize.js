@@ -6,6 +6,7 @@ var memoize = function(func, secondsToCache){
   return function(){
     // Stringify the arguments (function and secondsToCache)
     var key = JSON.stringify(arguments);
+    console.log("key is", key);
     // record the current time
     var currentTime = new Date();
     // if hashmap result doesn't contain the key or if the time difference from currentTime

@@ -27,23 +27,16 @@ var selectNnumber = function(inputArr, n){
       result[0].push(inputArr[start]);
       // insert the number to hashmap for later checking
       lowRecord[inputArr[start]] = true;
-      // increment the start position
-      start++;
-      // if the number had been inserted to the result already
-    } else {
-      // just check the next number
-      start++;
     }
+    start++;
   }
   // the higher range is the same as the lower range, just use the end position and reverse the direction
   while(result[1].length < n && end >= 0){
     if(!highRecord[inputArr[end]]){
       result[1].push(inputArr[end]);
       highRecord[inputArr[end]] = true;
-      end--;
-    } else {
-      end--;
     }
+    end--;
   }
   return result;
 };

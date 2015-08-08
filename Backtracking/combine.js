@@ -22,12 +22,15 @@ var dfs = function(n, k, start, item, result){
   // if accumulative length reach k, then make a copy and push to result
   if(item.length === k){
     result.push(item.slice());
+    // return the function to save performance
+    return;
   }
   // iterate from the start to n
   for(var i = start; i <= n; i++){
     // add start number to item
     item.push(i);
     // make recursive call with increment start
+    console.log("pushed item", item);
     dfs(n, k, i+1, item, result);
     // after reaching the end, pop out the last one
     item.pop();
@@ -35,4 +38,4 @@ var dfs = function(n, k, start, item, result){
 };
 
 console.log(combine(4,2));
-console.log(combine(4,3));
+// console.log(combine(4,3));
